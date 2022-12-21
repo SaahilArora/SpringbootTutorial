@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 
 @RefreshScope
 @SpringBootApplication
+//@EnableHystrix
 public class DemoApplication {
 
 	@Value("${database.name}")
@@ -47,8 +48,8 @@ public class DemoApplication {
 
 //		System.out.println(properties.getIntQA().toString());
 
-		System.out.println(properties.getProd().getName());
+		System.out.println(properties.getProd().getName()+", "+properties.getProd().getCode());
 
-		System.out.println(cloudName);
+//		System.out.println(cloudName);
 	}
 }

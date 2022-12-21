@@ -3,10 +3,14 @@ package com.example.demo.webservices;
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.exceptionHandler.NotFoundException;
 import com.example.demo.exceptionHandler.PathParameterException;
+import com.example.demo.property.Properties;
 import com.example.demo.services.CustomerService;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -15,8 +19,11 @@ public class CustomerController {
     @Autowired
     private CustomerService service;
 
+    @Autowired
+    private Properties properties;
+
     @PostMapping("/customers")
-    public Long saveCustomer(@RequestBody CustomerRepository customer){
+    public Long saveCustomer(@Valid @RequestBody CustomerRepository customer){
         System.out.println("Get Customer");
         return service.save(customer);
     }
@@ -64,4 +71,15 @@ public class CustomerController {
     public List<CustomerRepository> getCustomers(){
         return service.getCustomers();
     }
+
+    @GetMapping("/staticCustomers/")
+    public List<CustomerRepository> getStaticFilterCustomers(){
+        return service.loadCustomers();
+    }
+
+    @GetMapping("/dynamicCustomers/")
+    public List<CustomerRepository> getDynamicFilterCustomers(){
+        return service.getCustomers();
+    }
+
 }

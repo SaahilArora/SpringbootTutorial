@@ -6,6 +6,7 @@ import com.example.demo.dao.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,8 @@ public class CustomerService {
 
     @Autowired
     private CustomerDetailDAO detailDAO;
+
+    private static List<CustomerRepository> list;
 
     public Long save(CustomerRepository customer) {
         customer.setLastLogin(new Date());
@@ -50,5 +53,20 @@ public class CustomerService {
 
     public void deleteCustomerDetails(Long id){
 //        detailDAO.deleteById(id);
+    }
+
+    public List<CustomerRepository> loadCustomers(){
+        return list;
+    }
+
+
+    static {
+        list = new ArrayList<>();
+        list.add(new CustomerRepository("Holmes","Holmes@gmail.com"));
+        list.add(new CustomerRepository("Micheal","Micheal@gmail.com"));
+        list.add(new CustomerRepository("Albert","Albert@gmail.com"));
+        list.add(new CustomerRepository("Ravindran","Ravindran@gmail.com"));
+        list.add(new CustomerRepository("Cook","Cook@gmail.com"));
+        list.add(new CustomerRepository("Stuart","Stuart@gmail.com"));
     }
 }
