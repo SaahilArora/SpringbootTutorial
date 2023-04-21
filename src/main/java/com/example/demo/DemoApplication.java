@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @RefreshScope
 @SpringBootApplication

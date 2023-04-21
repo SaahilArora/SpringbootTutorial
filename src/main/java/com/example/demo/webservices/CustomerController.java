@@ -5,12 +5,10 @@ import com.example.demo.exceptionHandler.NotFoundException;
 import com.example.demo.exceptionHandler.PathParameterException;
 import com.example.demo.property.Properties;
 import com.example.demo.services.CustomerService;
-import io.github.resilience4j.bulkhead.annotation.Bulkhead;
-import io.github.resilience4j.retry.annotation.Retry;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
