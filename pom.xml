@@ -26,6 +26,12 @@
 			<version>2.2.7.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
 		<!--Dependency for content negotiation-->
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>

@@ -10,28 +10,27 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 import jakarta.annotation.PostConstruct;
 
-@RefreshScope
 @SpringBootApplication
 //@EnableHystrix
 public class DemoApplication {
 
-	@Value("${database.name}")
-	private String db;
-
-	@Value("${name.test:No Value}")
-	private String cloudName;
+//	@Value("${database.name}")
+//	private String db;
+//
+//	@Value("${name.test:No Value}")
+//	private String cloudName;
 
 //	@Autowired
 //	@Qualifier("mumbaiToBangalore")
 //	Route mumbaiHighWay;
 
-	@Autowired
-	private CustomerService service;
+//	@Autowired
+//	private CustomerService service;
+//
+//	@Autowired
+//	private Properties properties;
 
-	@Autowired
-	private Properties properties;
-
-	@Value("app.name")
+	@Value("${app.name}")
 	String string;
 
 
@@ -52,7 +51,7 @@ public class DemoApplication {
 
 //		System.out.println(properties.getIntQA().toString());
 
-		System.out.println(properties.getProd().getName()+", "+properties.getProd().getCode());
+//		System.out.println(properties.getProd().getName()+", "+properties.getProd().getCode());
 
 //		System.out.println(cloudName);
 	}

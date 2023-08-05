@@ -1,11 +1,8 @@
 spring:
   application.name: cloudproperty
   profiles.active: ${PROFILES:dev}
-  config:
-    import: ${CONFIG_SERVER_URI:http://localhost:8888/cloudproperty}
   cloud:
     config:
-      enabled: true
       name: cloudproperty-${DEPLOY_ENV:test}
       uri: ${CONFIG_SERVER_URI:http://localhost:8888/cloudproperty}
       fail-fast: true
