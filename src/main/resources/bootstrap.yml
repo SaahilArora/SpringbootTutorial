@@ -1,12 +1,12 @@
 spring:
-  application.name: cloudproperty
-  profiles.active: ${PROFILES:dev}
+  application.name: cloudproperty # fetch the property configurations from cloudProperty project on gitlab.
+  profiles.active: ${PROFILES:dev} # Read the data for application-dev.properties file of cloudProperty project.
   cloud:
     config:
-      name: cloudproperty-${DEPLOY_ENV:test}
-      uri: ${CONFIG_SERVER_URI:http://localhost:8888/cloudproperty}
+      uri: ${CONFIG_SERVER_URI:http://localhost:8888/cloudproperty} # localhost for cloud server and get the data from gitlab cloudProperty.
+      name: cloudproperty-${DEPLOY_ENV:test} # Config project folder name /cloudProperty/test/
+      label: ${CONFIG_SERVER_BRANCH:main} # Config project branch name
       fail-fast: true
       request-read-timeout: 10000
       request-connect-timeout: 5000
-      label: ${CONFIG_SERVER_BRANCH:main}
   lifecycle.timeout-per-shutdown-phase: 30s
