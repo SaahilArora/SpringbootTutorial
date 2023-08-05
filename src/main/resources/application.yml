@@ -1,0 +1,15 @@
+spring:
+  application.name: cloudproperty
+  profiles.active: ${PROFILES:dev}
+  config:
+    import: ${CONFIG_SERVER_URI:http://localhost:8888/cloudproperty}
+  cloud:
+    config:
+      enabled: true
+      name: cloudproperty-${DEPLOY_ENV:test}
+      uri: ${CONFIG_SERVER_URI:http://localhost:8888/cloudproperty}
+      fail-fast: true
+      request-read-timeout: 10000
+      request-connect-timeout: 5000
+      label: ${CONFIG_SERVER_BRANCH:main}
+  lifecycle.timeout-per-shutdown-phase: 30s

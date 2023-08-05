@@ -31,6 +31,9 @@ public class DemoApplication {
 	@Autowired
 	private Properties properties;
 
+	@Value("app.name")
+	String string;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -38,6 +41,7 @@ public class DemoApplication {
 	}
 	@PostConstruct
 	public void listener(){
+		System.out.println("\n\n\n\n\n##################  "+string+"\n\n\n\n");
 //		mumbaiHighWay.getRouteFrom();
 //		System.out.println(db);
 //

@@ -36,7 +36,7 @@ public class NetflixController {
         return "Something went wrong";
     }
 
-    /*API To Test Netflix BulkHead Concept To Restrict API 5request/Sec. See application.properties for more information*/
+    /*API To Test Netflix BulkHead Concept To Restrict API 5request/Sec. See application-test.properties for more information*/
     @GetMapping("/getProperties")
     @Bulkhead(name = "properties")
     public String getProperties(){
